@@ -1,0 +1,23 @@
+1 pertama masukkan semua text ke dalam satu file, sekarang masih manual, sebaiknya diautomate
+  hasilnya : 200sms.txt
+2 masukkan label semua text dengan urutan yang sama dengan 200sms.txt, masih manual juga
+  hasilnya : label.txt
+3 jalankan script ngram.py, output adalah ngram dari 200sms.txt
+  hasilnya : final.csv
+4 jalankan script giveLabel.py, akan butuh input label.txt dan final.csv, output nya adalah final.csv yg sudah diberi label
+  hasilnya : labeledall.csv
+5 jalankan script chi2_selectFeature.py, akan butuh input labelledall.csv, 200sms.txt, label.txt. Script ini akan melakukan chi2 pilih fitur, lalu membuat ulang ngram dari 200sms.txt namun hanya dengan fitur yg sudah dipilih, dan menambahkan label dengan label.txt. Output nya adalah file yang siap digunakan untuk traning data machine learning algorithm
+  hasilnya : trainingready.csv
+6 jalankan script modeltrain.py, akan butuh input trainingready.csv . Script ini akan melatih algoritma machine learning dengan data dari csv untuk menghasilkan sebuah model. Dalam script ini tersedia pilihan untuk menggunakan NB, RF, SVM . Dan akan ada demo untuk memprediksi label pada data.
+  hasilnya : TRAINEDMODEL.pkl
+
+ekstra 
+Untuk dapat memprediksi sms baru yang akan dihasilkan di masa depan, sms itu harus dipreproses hingga menjadi seperti testInput.csv (struktur harus sama, gunakan header yg sama).
+dalam script modeltrain.py terdapat juga demo tentang cara mengolah data baru dengan format yg sudah benar dan memprediksi dengan algoritma yg telah dilatih
+
+Note
+Pastikan membaca semua komen di script modeltrain.py . ada banyak, dan semua penting untuk memahami fungsi fungsi nya
+
+DISCLAIMER:
+Not all the library imported is used, writer just too lazy to refactor the code and remove unused library,
+And all 3 algorithm are not tweaked at all, be eager to learn the theory behind it and explore the result of every parameter adjustion
